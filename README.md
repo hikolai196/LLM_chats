@@ -1,0 +1,18 @@
+# LLM chats or completion in carious form
+Mainly with opensource models
+## Instructions
+Use langchain dependencies and install Ollama for: 
+CodeAssistant.py
+LLAMACpp_LC.py
+OllamaChat.py
+OllamaChat2.py - with Embedding
+OllamaLLM.py
+
+Install Ollama for:
+OllamaSimple.py
+
+Use Streamlit and Ollama for:
+StreamlitChatbot.py
+
+Use groq for:
+GroqChat.py
