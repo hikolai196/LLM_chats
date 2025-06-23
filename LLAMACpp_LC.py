@@ -1,15 +1,18 @@
+import os
 from langchain_community.llms import LlamaCpp
 from langchain_core.prompts import PromptTemplate
 from langchain_core.callbacks import CallbackManager, StreamingStdOutCallbackHandler
 
 # The model path
-model_path = r"MODELHERE" 
+model_path = "MODEL"
 
-template = """Question: {question}
+template = """You are a helpful AI assistant.
 
-Answer: """
+{history}
+User: {question}
+Assistant:"""
 
-prompt = PromptTemplate.from_template(template=template)
+prompt = PromptTemplate.from_template(template)
 
 # Callbacks support token-wise streaming
 callback_manager = CallbackManager([StreamingStdOutCallbackHandler()])
@@ -35,11 +38,28 @@ llm = LlamaCpp(
     max_tokens=200,
     top_p=1,
     callback_manager=callback_manager,
-    verbose=True,  # Verbose is required to pass to the callback manager
+    verbose=False,  # Verbose is required to pass to the callback manager
 )
 
 llm_chain = prompt | llm
 
-question = "請簡短推薦兩間台中美食"
+history = []
 
-print(llm_chain.invoke(question))
+while True:
+    user_input = input("\nYou: ")
+    if user_input.lower() in ["exit", "quit"]:
+        print("Goodbye!")
+        break
+
+    formatted_history = "\n".join(history)
+    
+    print("\nAssistant: ", flush=True)
+
+    response = llm_chain.invoke({
+        "history": formatted_history,
+        "question": user_input
+    })
+
+    history.append(f"User: {user_input}")
+    history.append(f"Assistant: {response.strip()}")
+

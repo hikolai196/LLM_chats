@@ -1,21 +1,33 @@
-# Import necessary libraries
 from langchain_ollama import ChatOllama
 from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.messages import HumanMessage, AIMessage, SystemMessage
+
+model = "MODEL"
 
 # Initialize the model
 llm = ChatOllama(
-    model="MODELHERE",
-    temperature=0.1,
+    model=model,
+    temperature=0,
+    max_tokens=256,
 )
 
-prompt = ChatPromptTemplate.from_messages([
-        ("system", "You are a helpful software developer specialized in Python."),
-        ("human", "{input}"),
-    ])
+chat_history = [
+    SystemMessage(content="You are a helpful software developer specialized in Python.")
+]
 
-chain = prompt | llm
-ai_msg = chain.invoke({
-        "input": "Create a snake game. Use best practices and include code comments.",
-    })
+while True:
+    user_input = input("User: ")
+    
+    if user_input.lower() in ["exit", "quit", "q"]:
+        print("Exiting the chat.")
+        break
 
-print(ai_msg.content)
+    # Add user's message to history
+    chat_history.append(HumanMessage(content=user_input))
+
+    # Get response from model
+    response = llm.invoke(chat_history)
+
+    # Print and store the assistant's reply
+    print("Assistant:", response.content)
+    chat_history.append(AIMessage(content=response.content))
