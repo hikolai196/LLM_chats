@@ -14,5 +14,7 @@ OllamaSimple.py \
 Use Streamlit and Ollama for: \
 StreamlitChatbot.py \
 \
-Use groq for: \
-GroqChat.py \
+Use relative platforms \
+GroqChat.py <- groq \
+AzureOpenAI.py <- AzureOpemAI \
+google_gemini.py <- Google gemini 
