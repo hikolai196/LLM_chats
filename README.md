@@ -54,8 +54,9 @@ cd llm-chat-suite
    `pip install langchain streamlit`
 
 3. Install Ollama 
-- Follow Ollama installation instructions. 
-4. Set up Platform Credentials -> - For Groq, Azure OpenAI, and Google Gemini, ensure API keys and environment variables are configured.
+  - Follow Ollama installation instructions. 
+4. Set up Platform Credentials
+  - For Groq, Azure OpenAI, and Google Gemini, ensure API keys and environment variables are configured.
 
 --- 
 ## Usage
