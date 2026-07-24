@@ -17,26 +17,18 @@ This repository provides various chat and completion interfaces for Large Langua
 - [Ollama](https://ollama.com/)
 - [Streamlit](https://streamlit.io/) (for chatbot UI)
 
-### 1. LangChain & Ollama
+### 1. Ollama
 - Required for:
-  - CodeAssistant.py
-  - LLAMACpp_LC.py
-  - OllamaChat.py
-  - OllamaChat2.py (includes Embedding)
-  - OllamaLLM.py
+  - Ollama_agent
 
-### 2. Ollama Only
+### 2. LLAMACPP
 - Required for:
-  - OllamaSimple.py
+  - LLAMACPP_LC.py
 
-### 3. Streamlit & Ollama
-- Required for:
-  - StreamlitChatbot.py
-
-### 4. Platform-Specific Scripts
-- GroqChat.py &rarr; Requires Groq platform
-- AzureOpenAI.py &rarr; Requires Azure OpenAI
-- google_gemini.py &rarr; Requires Google Gemini
+### 3. APIs
+- google_gemini_chat; Requires Google AI API
+- AzureAPI; Requires Azure OpenAI API
+- GroqChat.py &rarr; Requires Groq platform API
 
 ---
 ## Installation
@@ -51,7 +43,7 @@ cd llm-chat-suite
 
 2. Install Python Dependencies
 
-   `pip install langchain streamlit`
+   `pip install ......`
 
 3. Install Ollama 
   - Follow Ollama installation instructions. 
@@ -61,26 +53,13 @@ cd llm-chat-suite
 --- 
 ## Usage
 - Run chat/completion scripts with required dependencies and platforms
-- Example (Ollama + LangChain): 
+- Examples: 
 
-   `python OllamaChat.py`
+   `python ......` or
 
-- Example (Streamlit chatbot): 
+   `streamlit run ......` or
 
-   `streamlit run StreamlitChatbot.py`
-
---- 
-## Script Overview
-- CodeAssistant.py: LLM-powered code assistant (LangChain, Ollama) 
-- LLAMACpp_LC.py: LLAMACpp integration via LangChain 
-- OllamaChat.py: Standard Ollama chat interface (LangChain) 
-- OllamaChat2.py: Ollama chat with embedding support (LangChain) 
-- OllamaLLM.py: LLM completion via Ollama (LangChain) 
-- OllamaSimple.py: Minimal Ollama chat (Ollama only) 
-- StreamlitChatbot.py: Web-based chatbot UI (Streamlit, Ollama) 
-- GroqChat.py: Groq platform chat 
-- AzureOpenAI.py: Azure OpenAI chat/completion 
-- google_gemini.py: Google Gemini chat/completion
+  `uv run ......`
 
 --- 
 ## Contributing
